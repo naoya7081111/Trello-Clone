@@ -7,12 +7,10 @@ export const TaskCardTitle = () => {
 
   const handleClick = () => {
     setIsClick(true);
-    console.log(isClick);
   }
 
   const handleChange = (e) => {
     setInputCardTitle(e.target.value)
-    console.log(inputCartTitle)
   }
 
   const handleSubmit = (e) => {
@@ -20,11 +18,15 @@ export const TaskCardTitle = () => {
     setIsClick(false);
   }
 
+  const handleBlur = () => {
+    setIsClick(false);
+  }
+
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className='taskCardTitleInputArea'>
       {isClick ? (
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
+        <input type="text" className='taskCardTitleInput' onChange={handleChange} onBlur={handleBlur} value={inputCartTitle} autoFocus maxLength={10}/>
         </form>
         ) : (
         <h3>{inputCartTitle}</h3>
