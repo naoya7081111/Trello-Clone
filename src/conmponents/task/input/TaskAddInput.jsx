@@ -8,7 +8,7 @@ export const TaskAddInput = (props) => {
   const handleSubmit = (e) => {
     const taskId = uuid();
     e.preventDefault();
-    if(inputText == '') return;
+    if(inputText === '') return;
     // カードを追加する
     setTaskList([...taskList, {id: taskId, text: inputText, draggableId: `task-${taskId}`}])
     setInputText('');
